@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Table, Button } from 'reactstrap';
 
 import Comfirm from "../Modal/comfirmation.jsx";
-import EditUser from "../Modal/edit-user.jsx";
+import EditTask from "../Modal/edit-task.jsx";
 
 const Users = (props) => {
   const [comfirm, setComfirm] = useState(false);
@@ -24,10 +24,10 @@ const Users = (props) => {
       <Comfirm
         comfirm={comfirm}
         setComfirm={setComfirm}
-        message="Are You Sure You Want To Delete This User"
+        message="Are You Sure You Want To Delete This Task"
       />
 
-      <EditUser
+      <EditTask
         modal={modal}
         setModal={setModal}
       />
@@ -37,6 +37,7 @@ const Users = (props) => {
           <tr>
             <th>#</th>
             <th>Name</th>
+            <th>State</th>
             <th>Update</th>
             <th>Delete</th>
           </tr>
@@ -44,7 +45,8 @@ const Users = (props) => {
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>Mark</td>
+            <td>Learn Scala</td>
+            <td>Todo</td>
             <td>
               <Button
                 onClick={editModal}
@@ -64,7 +66,8 @@ const Users = (props) => {
           </tr>
           <tr>
             <th scope="row">2</th>
-            <td>Jacob</td>
+            <td>Learn BLockchain</td>
+            <td>Done</td>
             <td>
               <Button
                 onClick={editModal}
@@ -84,7 +87,8 @@ const Users = (props) => {
           </tr>
           <tr>
             <th scope="row">3</th>
-            <td>Larry</td>
+            <td>Learn Compilers</td>
+            <td>Todo</td>
             <td><Button onClick={editModal} size="sm" color="primary">Update</Button>{' '}</td>
             <td>
               <Button

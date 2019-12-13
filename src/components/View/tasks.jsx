@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Col, Row, Button } from "reactstrap";
 import NavBar from "../Navbar/index";
-import Users from "../Layout/users.jsx";
+import Tasks from "../Layout/tasks.jsx";
 
-import CreateUser from "../Modal/create-user.jsx"
+import CreateTask from "../Modal/create-task.jsx";
 
-const Index = () => {
+const Task = () => {
   const [create, setCreate] = useState(false);
 
   const createModal = () => {
@@ -16,18 +16,18 @@ const Index = () => {
     <>
       <NavBar />
 
-      <CreateUser
+      <CreateTask
         create={create}
         setCreate={setCreate}
       />
       <Row >
         <Col md="4">
-          <Button onClick={createModal} color="info">Create User</Button>{' '}
+          <Button onClick={createModal} color="info">Create New Task</Button>{' '}
         </Col>
       </Row>
       <Row >
         <Col md="12">
-          <Users />
+          <Tasks />
         </Col>
       </Row>
 
@@ -35,4 +35,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Task;
