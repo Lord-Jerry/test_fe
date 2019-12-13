@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import { Table, Button } from 'reactstrap';
 
 import Comfirm from "../Modal/comfirmation.jsx";
+import EditUSer from "../Modal/edit-user.jsx";
+import EditUser from "../Modal/edit-user.jsx";
 
 const Users = (props) => {
   const [comfirm, setComfirm] = useState(false);
+  const [modal, setModal] = useState(false);
+
+  const editModal = () => {
+    // activate edit user modal
+    setModal(true);
+  };
 
   const deletePropmt = () => {
     // activate delete propmpt
@@ -18,6 +26,11 @@ const Users = (props) => {
         comfirm={comfirm}
         setComfirm={setComfirm}
         message="Are You Sure You Want To Delete This User"
+      />
+
+      <EditUser
+        modal={modal}
+        setModal={setModal}
       />
 
       <Table className="users" responsive striped>
@@ -35,7 +48,7 @@ const Users = (props) => {
             <td>Mark</td>
             <td>
               <Button
-                onClick={deletePropmt}
+                onClick={editModal}
                 size="sm"
                 color="primary">
                 Update
@@ -55,7 +68,7 @@ const Users = (props) => {
             <td>Jacob</td>
             <td>
               <Button
-                onClick={deletePropmt}
+                onClick={editModal}
                 size="sm"
                 color="primary">
                 Update
@@ -73,7 +86,7 @@ const Users = (props) => {
           <tr>
             <th scope="row">3</th>
             <td>Larry</td>
-            <td><Button size="sm" color="primary">Update</Button>{' '}</td>
+            <td><Button onClick={editModal} size="sm" color="primary">Update</Button>{' '}</td>
             <td>
               <Button
                 onClick={deletePropmt}
