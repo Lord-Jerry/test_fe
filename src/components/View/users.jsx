@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Table, Button } from 'reactstrap';
 
 import Comfirm from "../Modal/comfirmation.jsx";
-import EditUSer from "../Modal/edit-user.jsx";
 import EditUser from "../Modal/edit-user.jsx";
 
 const Users = (props) => {

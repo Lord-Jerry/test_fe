@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Row, Button } from "reactstrap";
 import NavBar from "../Navbar/index";
 import Users from "./users.jsx";
 
+import CreateUser from "../Modal/create-user.jsx"
+
 const Index = () => {
+  const [create, setCreate] = useState(false);
+
+  const createModal = () => {
+    setCreate(true);
+  }
+
   return (
     <>
       <NavBar />
+
+      <CreateUser
+        create={create}
+        setCreate={setCreate}
+      />
       <Row >
         <Col md="4">
-          <Button color="info">Create User</Button>{' '}
+          <Button onClick={createModal} color="info">Create User</Button>{' '}
         </Col>
       </Row>
       <Row >
