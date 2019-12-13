@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Button,
   Modal,
@@ -14,6 +14,7 @@ const CreateUser = (props) => {
     action,
     setCreate,
     create,
+    setName,
   } = props;
 
   const toggle = () => setCreate(!create);
@@ -24,7 +25,7 @@ const CreateUser = (props) => {
         <ModalHeader toggle={toggle}>Create User</ModalHeader>
         <ModalBody>
           <InputGroup>
-            <Input placeholder="username" />
+            <Input onChange={(e) => setName(e.target.value)} placeholder="username" />
           </InputGroup>
         </ModalBody>
         <ModalFooter>

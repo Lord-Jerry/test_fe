@@ -12,7 +12,7 @@ function App() {
           <Index />
         </Route>
 
-        <Route exact path="/tasks">
+        <Route exact path="/tasks/:userId">
           <Tasks />
         </Route>
       </Switch>

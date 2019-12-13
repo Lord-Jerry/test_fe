@@ -5,8 +5,9 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  InputGroup,
-  Input
+  FormGroup,
+  Input,
+  Label,
 } from 'reactstrap';
 
 const CreateTask = (props) => {
@@ -14,6 +15,8 @@ const CreateTask = (props) => {
     action,
     setCreate,
     create,
+    setState,
+    setDescription,
   } = props;
 
   const toggle = () => setCreate(!create);
@@ -23,32 +26,25 @@ const CreateTask = (props) => {
       <Modal isOpen={create} toggle={toggle} >
         <ModalHeader toggle={toggle}>Create New Task</ModalHeader>
         <ModalBody>
-          <InputGroup>
-            <label
-              className="form-control-label"
-              htmlFor="input-old">
-              Task
-             </label>
-            <Input placeholder="task" />
-          </InputGroup>
 
-          <InputGroup>
-            <label
-              className="form-control-label"
-              htmlFor="input-old">
-              Description
-             </label>
-            <Input placeholder="description" />
-          </InputGroup>
+          <FormGroup>
+            <Label for="description">Description</Label>
+            <Input onChange={(e) => setDescription(e.target.value)} placeholder="description" />
+          </FormGroup>
 
-          <InputGroup>
-            <label
-              className="form-control-label"
-              htmlFor="input-old">
-              State
-             </label>
-            <Input placeholder="state" />
-          </InputGroup>
+          <FormGroup>
+            <Label for="state">State</Label>
+            <Input
+              onChange={(e) => setState(e.target.value)}
+              type="select"
+              name="select"
+              id="exampleSelect"
+            >
+              <option selected disabled>State</option>
+              <option value="todo">todo</option>
+              <option value="done">done</option>
+            </Input>
+          </FormGroup>
         </ModalBody>
         <ModalFooter>
           <Button color="danger" onClick={action}>Submit</Button>{' '}
